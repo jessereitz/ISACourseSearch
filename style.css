@@ -174,10 +174,6 @@ div.modalWindow .country {
   vertical-align: top;
 }
 
-div.modalWindow .country a:hover {
-  color: orange !important;
-}
-
 div.modalWindow h3 {
   margin: 0;
   text-align: left;
