@@ -48,10 +48,14 @@ function createRegionSection(region) {
 
   for(let i = 0; i < countries.length; i++) {
     var currentCountry = countries[i];
-    var href = "https://www.studiesabroad.com/programs/country/" + currentCountry.name.replace(" ", "_").toLowerCase() + "/city/";
+    var baseHref = "https://www.studiesabroad.com/programs/country/" + currentCountry.name.replace(" ", "_").toLowerCase();
+    var href = baseHref + "/city/";
     var countrySection = newEl("section", currentCountry.name, ["country"]);
+    var sectionHeaderLink = createLink(baseHref, "", true);
+    sectionHeaderLink.classList.add("countryLink");
     var sectionHeader = createHeading(currentCountry.name, 3);
-    countrySection.appendChild(sectionHeader);
+    sectionHeaderLink.appendChild(sectionHeader);
+    countrySection.appendChild(sectionHeaderLink);
 
     // create list of cities
     var sectionList = document.createElement("ul");
@@ -112,7 +116,8 @@ function createLink(href, text, newTab) {
   link.setAttribute("href", href);
   if (newTab)
     link.setAttribute("target", "_blank");
-  link.appendChild(document.createTextNode(text));
+  if (text)
+    link.appendChild(document.createTextNode(text));
   return link;
 }
 

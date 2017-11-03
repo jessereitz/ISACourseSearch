@@ -39,7 +39,7 @@ div.regionModule {
   box-sizing: border-box;
   display: inline-block;
   width: 15vw;
-  height: 40vh;
+  height: 15vw;
   margin: 0.5em;
   vertical-align: middle;
   background: #fff;
@@ -47,6 +47,13 @@ div.regionModule {
   box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.2);
   transition: all 0.2s;
   padding: 0;
+}
+
+@media screen and (max-width: 1300px) {
+  div.regionModule {
+    width: 25vw;
+    height: 25vw;
+  }
 }
 
 div.regionModule * {
@@ -115,12 +122,15 @@ section.modal {
   background: rgba(0,0,0,0.8);
   text-align: center;
   z-index: 10;
+  overflow: scroll;
+  padding-bottom: 5vh;
 }
 
 div.modalWindow {
   margin-top: 5vh;
   display: inline-block;
   min-width: 50vw;
+  max-width: 80vw;
   background: #fff;
 }
 
@@ -149,7 +159,6 @@ div.modalWindow .exit:hover {
   border-bottom: 2px solid #fff;
 }
 
-
 div.modalWindow h1 {
   margin: 0;
   line-height: 3em;
@@ -158,10 +167,15 @@ div.modalWindow h1 {
 }
 
 div.modalWindow .country {
+  box-sizing: border-box;
   display: inline-block;
-  margin: 2em 2em;
+  padding: 2em;
   text-align: left;
   vertical-align: top;
+}
+
+div.modalWindow .country a:hover {
+  color: orange !important;
 }
 
 div.modalWindow h3 {
@@ -171,14 +185,38 @@ div.modalWindow h3 {
 
 div.modalWindow ul {
   display: inline-block;
-  /*padding: 0;*/
+  list-style: none;
   margin: 0;
+  margin-top: 0.25em;
+  border-left: 1px solid #999;
+  padding-left: 0.5em;
 }
 
-
-*.hide {
-  display: none;
+div.modalWindow li {
+  margin: 0.25em;
+  margin-left: 0;
+  transition: all 0.2s;
 }
+
+div.modalWindow li:hover {
+  transform: translateX(3px);
+}
+
+div.modalRegion {
+  color: #666;
+  padding: 1em;
+}
+
+div.modalRegion a {
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(30, 30, 30, 0);
+}
+
+div.modalRegion a:hover {
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
 
 .africaBkg {
   background: #7b79b5 !important;
@@ -198,4 +236,14 @@ div.modalWindow ul {
 
 .pacificBkg {
   background: #0096d3 !important;
+}
+
+
+
+
+
+
+
+*.hide {
+  display: none;
 }
