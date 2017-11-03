@@ -27,9 +27,15 @@ function initializeModal(region) {
 function updateModalWindow(region) {
   let modalTitle = modalWindow.querySelector("h1");
   modalTitle.textContent = region.name;
-  if (currentModalRegion)
+  let modalHeader = modalWindow.querySelector("header");
+  if (currentModalRegion) {
+    var bkgClass = currentModalRegion.name.replace(" ", "_").toLowerCase() + "Bkg";
+    modalTitle.classList.remove(bkgClass);
     modalWindow.removeChild(currentModalRegion.elements);
+  }
   currentModalRegion = region;
+  let className = currentModalRegion.name.replace(" ", "_").toLowerCase() + "Bkg";
+  modalTitle.classList.add(className);
   modalWindow.appendChild(currentModalRegion.elements);
 }
 
@@ -110,11 +116,6 @@ function createLink(href, text, newTab) {
   return link;
 }
 
-
-
-
-
-
 ///////////////////////////
 /////     HELPERS     /////
 ///////////////////////////
@@ -130,16 +131,6 @@ function containsObj(arr, attr, val) {
   }
   return false;
 }
-
-
-
-
-
-
-
-
-
-
 
  ////////////////////////////
 /////     LISTENERS     /////

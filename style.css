@@ -179,3 +179,23 @@ div.modalWindow ul {
 *.hide {
   display: none;
 }
+
+.africaBkg {
+  background: #7b79b5 !important;
+}
+
+.asiaBkg {
+  background: #f26e7f !important;
+}
+
+.europeBkg {
+  background: #00bacc !important;
+}
+
+.latin_americaBkg {
+  background: #7cc462 !important;
+}
+
+.pacificBkg {
+  background: #0096d3 !important;
+}
