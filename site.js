@@ -29,12 +29,12 @@ function updateModalWindow(region) {
   modalTitle.textContent = region.name;
   let modalHeader = modalWindow.querySelector("header");
   if (currentModalRegion) {
-    var bkgClass = currentModalRegion.name.replace(" ", "_").toLowerCase() + "Bkg";
+    var bkgClass = currentModalRegion.name.replace(/ /g, "_").toLowerCase() + "Bkg";
     modalTitle.classList.remove(bkgClass);
     modalWindow.removeChild(currentModalRegion.elements);
   }
   currentModalRegion = region;
-  let className = currentModalRegion.name.replace(" ", "_").toLowerCase() + "Bkg";
+  let className = currentModalRegion.name.replace(/ /g, "_").toLowerCase() + "Bkg";
   modalTitle.classList.add(className);
   modalWindow.appendChild(currentModalRegion.elements);
 }
@@ -48,7 +48,7 @@ function createRegionSection(region) {
 
   for(let i = 0; i < countries.length; i++) {
     var currentCountry = countries[i];
-    var baseHref = "https://www.studiesabroad.com/programs/country/" + currentCountry.name.replace(" ", "_").toLowerCase();
+    var baseHref = "https://www.studiesabroad.com/programs/country/" + currentCountry.name.replace(/ /g, "_").toLowerCase();
     var href = baseHref + "/city/";
     var countrySection = newEl("section", currentCountry.name, ["country"]);
     var sectionHeaderLink = createLink(baseHref, "", true);
@@ -61,7 +61,7 @@ function createRegionSection(region) {
     var sectionList = document.createElement("ul");
     for(let j = 0; j < currentCountry.cities.length; j++) {
       let curCity = currentCountry.cities[j];
-      let curhref = href + curCity.replace(" ", "_").toLowerCase() + "/course_search";
+      let curhref = href + curCity.replace(/ /g, "_").toLowerCase() + "/course_search";
 
       let curListItem = document.createElement("li");
       let curItemLink = createLink(curhref, curCity, true);
