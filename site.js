@@ -61,7 +61,7 @@ function createRegionSection(region) {
     var sectionList = document.createElement("ul");
     for(let j = 0; j < currentCountry.cities.length; j++) {
       let curCity = currentCountry.cities[j];
-      let curhref = href + curCity.toLowerCase() + "/course_search";
+      let curhref = href + curCity.replace(" ", "_").toLowerCase() + "/course_search";
 
       let curListItem = document.createElement("li");
       let curItemLink = createLink(curhref, curCity, true);
